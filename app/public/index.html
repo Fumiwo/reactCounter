@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React Counter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+  </head>
+  <body>
+    <div id="mount-point"></div>
+    <script type="text/babel">
+    var Counter = React.createClass({
+      // インクリメント
+      incrementCount: function() {
+        this.setState({
+          count: this.state.count + 1
+        });
+      },
+
+      // 初期表示時に一度実行
+      getInitialState: function() {
+        return {
+          count: 0
+        }
+      },
+      render: function () {
+        return (
+          <div class="my-component">
+            <h1>Count: {this.state.count}</h1>
+            <button type="button" onClick={this.incrementCount}>Increment</button>
+          </div>
+        );
+      }
+    });
+
+    ReactDOM.render(
+      <Counter/>,
+      document.getElementById('mount-point')
+    );
+    </script>
+  </body>
+</html>
